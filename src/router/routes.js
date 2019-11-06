@@ -53,17 +53,6 @@ export const routes = [
     component: Main,
 
     beforeEnter: (to, from, next) => {
-      const browser = Bowser.getParser(window.navigator.userAgent)
-      const isValidBrowser = true
-      /*browser.satisfies({
-        chrome: '>20.1.1432',
-        edg: '>79',
-        firefox: '>31',
-        vivaldi: '>2.8'
-      })*/
-      if (!isValidBrowser) {
-        return next({ name: 'wrong-browser' })
-      }
 
       auth.requireAuth(to, from, (nextPath) => {
         if (nextPath) {
